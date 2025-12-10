@@ -6,11 +6,11 @@ export function getAllPlayers() {
 }
 
 // to find by id
-export const findPlayerByID = (id) => {
+export const findPlayerById = (id) => {
   return players.find((player) => player.id === id);
 };
 
-function addPlayer(playerData) {
+export function addPlayer(playerData) {
   const newPlayerData = {
     id: players.length + 1,
     name: playerData.name,
@@ -25,9 +25,9 @@ function addPlayer(playerData) {
   return newPlayerData;
 }
 
-console.log(addPlayer({name:"ben", position: "foward", age: 26, nationality: "israel"}));
+// console.log(addPlayer({name:"ben", position: "foward", age: 26, nationality: "israel"}));
 
-function deletePlayer(id) {
+export function deletePlayer(id) {
   const index = players.findIndex((player) => player.id === id);
   const removed = players[index];
   if (index !== -1) {
@@ -39,13 +39,13 @@ function deletePlayer(id) {
 
 // console.log(deletePlayer(1));
 
-function updateData(id, newData) {
+export function updateData(id, newData) {
   const toUpdate = findPlayerByID(id);
   Object.assign(toUpdate, newData);
   return toUpdate;
 }
 
-console.log(updateData(8, { name: "shlomo" }));
+// console.log(updateData(8, { name: "shlomo" }));
 
 export function findByName(name) {
     const p1 = players.find((player) => player.name === name);
